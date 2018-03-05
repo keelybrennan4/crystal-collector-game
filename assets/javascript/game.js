@@ -21,47 +21,47 @@ var crystal = {
 };
 
 var currentScore = 0;
-var randomNumberGuess = 0;
+var targetScore = 0;
 var winCount = 0;
 var lossCount = 0; 
 
 
-
-//1. 4 crystals should display on the page each with a differnet random value between 1 and 12. 
-    //math.floor.math.random()
-    //print in container "number-to-guess"
-//id="one", "two", "three" "four"
-
-    //<button onclick="myFunction()">Try it</button>
-//<p id="demo"></p>
-
-//function myFunction() {
-  //  var x = Math.floor((Math.random() * 12) + 1);
-  //  document.getElementById("demo").innerHTML = x;
-//}
-
-
-
 //---------- FUNCTIONS -------// 
+// function to generate random numbers 
+var getRandom = function(min, max){
+    return Math.floor(Math.random() * (max - min +1) + min);
+}
 
-//2. As the user clicks on the crystals, userScore is incremented until the user reaches the numberToGuess.
-    //math.floor.math.random()
-    // 
+//starts the game and restarts the game 
+var startGame = function(){
+    //set current score equal to 0 
+    var currentScore = 0;
+
+    //set targetScore to random number between 19 and 120 
+    targetScore = getRandom(19, 120);
+
+    //set each crystal score to a random number between 1 and 12
+    crystal.one.value = getRandom(1, 12);
+    crystal.two.value = getRandom(1, 12);
+    crystal.three.value = getRandom(1, 12);
+    crystal.four.value = getRandom(1, 12);
+
+    // print to html to reflect the score changes after each guess
+    $("#user-score").html(currentScore);
+    $("#number-to-guess").html(targetScore);
+    $("#wins").html(winCount);
+    $("#losses").html(lossCount);
+}
+
+//function to pass the randomy generated value to each crystal and store the value during each round 
+var addValues = function(crystal){
+    currentScore = currentScore + crystal.value;
+    $("#user-score").html(currentScore);
+    console.log("Your Score:  " + currentScore); 
+}
 
 
-//3. numberToGuess is randomly generated between 19 and 120 and displayed on the page.
-    //math.floor.math.random() +19
-    //print in container "number-to-guess"
-
-    function getRandomNumber() {
-        //var randomNumber = document.getElementById("number-to-guess")
-        number.innerHTML = Math.floor((Math.random() * 100) + 19);
-      }
-    
-    onclick="getRandomNumber()"
-    console.log(getRandomNumber);
-
-//4. userScore is compared to numberToGuess. 
+//5. userScore is compared to numberToGuess. 
     // IF the userScore is less than the numberToGuess, the user may continue to click the crystals to add points to the userScore
         // ELSE - when userScore == numberToGuess, 
             //the round is over
@@ -74,30 +74,33 @@ var lossCount = 0;
 
 
 
-
 //---------- GAME -------// 
+//starts game the first time 
+startGame();
+
 //click functions 
 $("#one").click(function() {
-    alert("test");
+// pass the randomy generated value to each crystal and store the value during each round 
+    addValues(crystal.one);
 })
 
 $("#two").click(function() {
-    alert("test");
+    addValues(crystal.two);
 })
 
 $("#three").click(function() {
-    alert("test");
+    addValues(crystal.three);
 })
 
 $("#four").click(function() {
-    alert("test");
+    addValues(crystal.four);
 })
 
 
-
-
-
-
-
-
+// Testing Console
+console.log("Target Score: " + targetScore);
+console.log("Crystal One:  "  + crystal.one.value);
+console.log("Crystal Two:  "  + crystal.two.value);
+console.log("Crystal Three:  "  + crystal.three.value);
+console.log("Crystal Four:  "  + crystal.four.value);
 });
