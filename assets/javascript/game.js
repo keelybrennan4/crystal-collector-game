@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-//-------- GLOBAL VARIABLES -------// 
+//---------- GLOBAL VARIABLES ---------// 
 var crystal = {
     one:
     {
@@ -25,8 +25,7 @@ var targetScore = 0;
 var winCount = 0;
 var lossCount = 0; 
 
-
-//---------- FUNCTIONS -------// 
+//------------ FUNCTIONS ----------// 
 // function to generate random numbers 
 var getRandom = function(min, max){
     return Math.floor(Math.random() * (max - min +1) + min);
@@ -35,7 +34,7 @@ var getRandom = function(min, max){
 //starts the game and restarts the game 
 var startGame = function(){
     //set current score equal to 0 
-    var currentScore = 0;
+    currentScore = 0;
 
     //set targetScore to random number between 19 and 120 
     targetScore = getRandom(19, 120);
@@ -49,32 +48,35 @@ var startGame = function(){
     // print to html to reflect the score changes after each guess
     $("#user-score").html(currentScore);
     $("#number-to-guess").html(targetScore);
-    $("#wins").html(winCount);
-    $("#losses").html(lossCount);
 }
 
 //function to pass the randomy generated value to each crystal and store the value during each round 
 var addValues = function(crystal){
     currentScore = currentScore + crystal.value;
     $("#user-score").html(currentScore);
+    //call the check win function
+    checkWin();
     console.log("Your Score:  " + currentScore); 
 }
 
+//check if user won or lost, and reset the game 
+var checkWin = function(){
+    //check if currentScore is greater than targetScore 
+    if(currentScore > targetScore){
+        console.log("You lost!");
+        lossCount++
+        $("#losses").html(lossCount);
+        startGame();
+    }
+    else if(currentScore == targetScore) {
+        console.log("You Won!");
+        winCount++
+        $("#wins").html(winCount);
+        startGame();
+    }
+}
 
-//5. userScore is compared to numberToGuess. 
-    // IF the userScore is less than the numberToGuess, the user may continue to click the crystals to add points to the userScore
-        // ELSE - when userScore == numberToGuess, 
-            //the round is over
-            // the wins are incrememted by 1 
-            // game resets so the user can play another round 
-        // ELSE IF - when userScore > numberToGuess, the user loses the round. 
-            //the round is over
-            // the wins are incrememted by 1 
-            // game resets so the user can play another round 
-
-
-
-//---------- GAME -------// 
+//------------ GAME ----------// 
 //starts game the first time 
 startGame();
 
@@ -96,8 +98,6 @@ $("#four").click(function() {
     addValues(crystal.four);
 })
 
-
-// Testing Console
 console.log("Target Score: " + targetScore);
 console.log("Crystal One:  "  + crystal.one.value);
 console.log("Crystal Two:  "  + crystal.two.value);
