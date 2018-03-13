@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 </head>
 
 <body>
@@ -26,59 +26,38 @@
         <hr class="my-4">
         </p>
     <div class="row">
-        <div class="col-lg-3">
-            <div class="panel column">
-      	        <div class="panel-body"><img src="assets/images/blue.png" class="crystalicons" id="one" alt="Blue Crystal"></div>
-            </div>
-        </div>
-
-        <div class="col-lg-3">
-            <div class="panel column">
-                <div class="panel-body"><img src="assets/images/purple.png" class="crystalicons" id="two" alt="Purple Crystal"></div>
-            </div>
-         </div>
-
-         
-        <div class="col-lg-3">
-            <div class="panel column">
-      	        <div class="panel-body"><img src="assets/images/green.png" class="crystalicons" id="three"  alt="Green Crystal"></div>
-            </div>
-        </div>
-        
-        <div class="col-lg-3">
-            <div class="panel column">
-                <div class="panel-body"><img src="assets/images/red.png" class="crystalicons" id="four" alt="Red Crystal"></div>
-            </div>
-        </div>
+      	    <div class="col-lg-3"><img src="assets/images/blue.png" class="crystalicons" id="one" alt="Blue Crystal"></div>
+            <div class="col-lg-3"><img src="assets/images/purple.png" class="crystalicons" id="two" alt="Purple Crystal"></div>
+      	    <div class="col-lg-3"><img src="assets/images/green.png" class="crystalicons" id="three"  alt="Green Crystal"></div>
+            <div class="col-lg-3"><img src="assets/images/red.png" class="crystalicons" id="four" alt="Red Crystal"></div>
     </div>  
-
 </br></br></br>
     <div class="row">   
         <div class="col-lg-3">
-            <div class="panel column text-center guess">
-                <div class="panel-heading">Number To Guess:</div>
+            <div class="panel column">
+                <div class="panel-heading-primary">Number To Guess:</div>
                 <div id="number-to-guess"></div>
             </div>
         </div>
 
         <div class="col-lg-3">
-            <div class="panel column text-center score">
+            <div class="panel column">
                 <div class="panel-heading">Score:</div>
                 <div id="user-score"></div>
             </div>
         </div>
             
-        <div class="col-lg-2 panel panel-default "></div>
+        <div class="col-lg-2 panel panel-default"></div>
 
-        <div class="col-lg-2 panel panel-default wins">
-            <div class="panel column text-center">
+        <div class="col-lg-2 panel panel-default" id="score">
+            <div class="panel column">
                 <div class="panel-heading">Wins:</div>
                 <div class="panel-body" id="wins"></div>
             </div>
         </div>
         
-        <div class="col-lg-2 panel panel-default losses">
-            <div class="panel column text-center">
+        <div class="col-lg-2 panel panel-default" id="score">
+            <div class="panel column">
                 <div class="panel-heading">Losses:</div>
                 <div class="panel-body" id="losses"></div>
             </div>
