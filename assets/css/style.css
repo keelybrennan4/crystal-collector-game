@@ -1,5 +1,12 @@
 .crystalicons{
-    width: 175px;
-    padding-right: 10px;
-    padding-bottom: 30px;
+    width: 185px;
+}
+body{
+    color: white;
+    font-size: 16px;
+    line-height: 150%;
+    background-image: url("../images/mochagrunge.png");
+}
+h1{
+    font-family: 'Permanent Marker', cursive;
 }
